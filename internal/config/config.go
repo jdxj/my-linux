@@ -7,19 +7,26 @@ import (
 )
 
 var (
-	w = wrap{
-		TG: &TG,
-	}
-	TG tg
+	w = wrap{}
+
+	TG      tg
+	Pattern string
+	Monitor map[string]*Threshold
 )
 
 type wrap struct {
-	TG *tg
+	TG      tg
+	Pattern string
+	Monitor map[string]*Threshold
 }
 
 type tg struct {
 	Token  string
 	ChatId int64
+}
+
+type Threshold struct {
+	Memory uint64
 }
 
 func init() {
@@ -29,4 +36,7 @@ func init() {
 	if err != nil {
 		g.Log().Panicf(ctx, "Struct err: %s", err)
 	}
+	TG = w.TG
+	Pattern = w.Pattern
+	Monitor = w.Monitor
 }

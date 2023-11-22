@@ -6,5 +6,6 @@ import (
 )
 
 func TestGetConfig(t *testing.T) {
-	fmt.Printf("%+v\n", TG)
+	fmt.Printf("TG: %+v\n", TG)
+	fmt.Printf("Monitor: %+v\n", Monitor)
 }
