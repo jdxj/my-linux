@@ -18,7 +18,7 @@ import (
 
 func main() {
 	ctx := gctx.GetInitCtx()
-	_, err := gcron.Add(ctx, config.Pattern, func(ctx context.Context) {
+	_, err := gcron.AddSingleton(ctx, config.Pattern, func(ctx context.Context) {
 		monitor.Monitor(ctx)
 	}, "monitor")
 	if err != nil {
