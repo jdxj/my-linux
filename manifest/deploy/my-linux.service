@@ -1,0 +1,12 @@
+# /lib/systemd/system/my-linux.service
+[Unit]
+Description=My Linux
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Type=simple
+Environment="GF_GCFG_PATH=/root/app/my-linux/config"
+ExecStart=/root/app/my-linux/my-linux
+Restart=on-failure

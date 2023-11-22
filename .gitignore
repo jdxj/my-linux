@@ -19,3 +19,4 @@ bin
 *.log
 
 manifest/config/config.yaml
+manifest/config/config_prod.yaml
