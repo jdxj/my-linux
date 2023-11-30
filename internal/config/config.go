@@ -9,15 +9,19 @@ import (
 var (
 	w = wrap{}
 
-	TG      tg
-	Pattern string
-	Monitor map[string]*Threshold
+	TG           tg
+	Pattern      string
+	PatternClear string
+	Monitor      map[string]*Threshold
+	Clear        map[string]*Threshold
 )
 
 type wrap struct {
-	TG      tg
-	Pattern string
-	Monitor map[string]*Threshold
+	TG           tg
+	Pattern      string
+	PatternClear string
+	Monitor      map[string]*Threshold
+	Clear        map[string]*Threshold
 }
 
 type tg struct {
@@ -27,6 +31,10 @@ type tg struct {
 
 type Threshold struct {
 	Memory uint64
+
+	Restart string
+	Size    int64
+	Files   []string
 }
 
 func init() {
@@ -38,5 +46,7 @@ func init() {
 	}
 	TG = w.TG
 	Pattern = w.Pattern
+	PatternClear = w.PatternClear
 	Monitor = w.Monitor
+	Clear = w.Clear
 }
